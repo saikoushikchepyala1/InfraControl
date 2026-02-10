@@ -1,0 +1,40 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowReadOnlyInventoryAndDescribe",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:Describe*",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeFlowLogs",
+        "elasticloadbalancing:Describe*",
+        "dynamodb:ListTables",
+        "dynamodb:DescribeTable",
+        "lambda:ListFunctions",
+        "rds:DescribeDBInstances",
+        "rds:Describe*",
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:GetBucketAcl",
+        "s3:GetBucketVersioning",
+        "s3:GetBucketEncryption",
+        "s3:GetBucketPolicy",
+        "s3:GetPublicAccessBlock",
+        "iam:ListUsers",
+        "iam:ListMFADevices",
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": ["*"]
+    },
+    {
+      "Sid": "AllowELBTargetHealth",
+      "Effect": "Allow",
+      "Action": [
+        "elasticloadbalancing:DescribeTargetGroups",
+        "elasticloadbalancing:DescribeTargetHealth"
+      ],
+      "Resource": ["*"]
+    }
+  ]
+}

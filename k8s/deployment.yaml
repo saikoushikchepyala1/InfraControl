@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: infracontrol-backend
+  labels:
+    app: infracontrol
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: infracontrol
+  template:
+    metadata:
+      labels:
+        app: infracontrol
+    spec:
+      serviceAccountName: infracontrol-sa
+      containers:
+        - name: backend
+          image: 060768936919.dkr.ecr.ap-south-1.amazonaws.com/infracontrol:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: AWS_REGION
+              value: "ap-south-1"
+            - name: AWS_DEFAULT_REGION
+              value: "ap-south-1"

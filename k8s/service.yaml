@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: infracontrol-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: infracontrol
+  ports:
+    - port: 80
+      targetPort: 8000
