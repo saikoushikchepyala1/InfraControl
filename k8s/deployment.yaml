@@ -17,7 +17,7 @@ spec:
       serviceAccountName: infracontrol-sa
       containers:
         - name: backend
-          image: 060768936919.dkr.ecr.ap-south-1.amazonaws.com/infracontrol:latest
+          image: saikoushik1/infracontrol:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
